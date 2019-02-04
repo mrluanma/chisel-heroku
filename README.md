@@ -5,44 +5,29 @@ Deploy [chisel](https://github.com/jpillora/chisel) to [Heroku](https://www.hero
 
 ### Getting started
 
-Make sure you have a working Docker installation (eg. `docker ps`) and that you’re logged in to Heroku (`heroku login`).
+Use this button [![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/mrluanma/chisel-heroku)
 
-Log in to Container Registry:
-
-```
-$ heroku container:login
-```
-
-Create a Heroku app:
+Or create a Heroku app manually:
 
 ```
 $ heroku create
-Creating app... done, ⬢ calm-cliffs-52507
-https://calm-cliffs-52507.herokuapp.com/ | https://git.heroku.com/calm-cliffs-52507.git
-```
-
-Set CHISEL_AUTH config:
-
-```
+$ heroku stack:set container
 $ heroku config:set CHISEL_AUTH=user:pass
-Setting CHISEL_AUTH and restarting ⬢ calm-cliffs-52507... done, v3
-CHISEL_AUTH: user:pass
-```
-
-Build the image and push to Container Registry:
-
-```
-$ heroku container:push web
+$ git push heroku master
+...
+remote: Verifying deploy... done.
+To https://git.heroku.com/shrouded-springs-35880.git
+ * [new branch]      master -> master
 ```
 
 Connect your chisel client:
 
 ```
-$ chisel client --auth user:pass https://calm-cliffs-52507.herokuapp.com socks
-2018/01/07 12:09:59 client: Connecting to wss://calm-cliffs-52507.herokuapp.com:443
-2018/01/07 12:09:59 client: tunnel#1 127.0.0.1:1080=>socks: Listening
-2018/01/07 12:10:01 client: Fingerprint ff:60:33:4b:48:8e:02:7a:cb:89:5d:1a:b2:86:16:de
-2018/01/07 12:10:02 client: Connected (Latency 306.990655ms)
+$ chisel --version
+1.3.1
+$ chisel client --keepalive 10s --auth user:pass https://shrouded-springs-35880.herokuapp.com socks
+...
+2019/02/05 02:16:33 client: Connected (Latency 263.548181ms)
 ```
 
 Point your SOCKS5 clients to `127.0.0.1:1080`
