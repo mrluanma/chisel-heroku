@@ -1,4 +1,4 @@
-FROM heroku/heroku:18
+FROM heroku/heroku:20
 RUN curl -sSL https://github.com/jpillora/chisel/releases/download/v1.4.0/chisel_1.4.0_linux_amd64.gz | zcat > /bin/chisel
 RUN chmod +x /bin/chisel
 RUN useradd -m heroku
