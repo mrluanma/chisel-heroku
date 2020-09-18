@@ -24,7 +24,7 @@ Connect your chisel client:
 
 ```
 $ chisel --version
-1.4.0
+1.7.0
 $ chisel client --keepalive 10s --auth user:pass https://shrouded-springs-35880.herokuapp.com socks
 ...
 2019/02/05 02:16:33 client: Connected (Latency 263.548181ms)
