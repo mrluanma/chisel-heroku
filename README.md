@@ -13,11 +13,11 @@ Or create a Heroku app manually:
 $ heroku create
 $ heroku stack:set container
 $ heroku config:set CHISEL_AUTH=user:pass
-$ git push heroku master
+$ git push heroku main
 ...
 remote: Verifying deploy... done.
 To https://git.heroku.com/shrouded-springs-35880.git
- * [new branch]      master -> master
+ * [new branch]      main -> main
 ```
 
 Connect your chisel client:
